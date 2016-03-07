@@ -13,7 +13,8 @@ public class CellSpacePartition : MonoBehaviour {
 	public double[] tempDouble = new double[2];
 
 	public FuzzyLogicGui flg;
-	
+	public double m_dViewDistance;
+
 	public bool fuzzifyInUse;
 
 	private string fileName = "";
@@ -175,6 +176,8 @@ public class CellSpacePartition : MonoBehaviour {
 		//               NumCellsX, NumCellsY, NumCellsZ, NumAgents);
 		
 		AmberjackCount = 0;
+
+		m_dViewDistance = 50.0d;
 
 		numberGF = 0;
 		numberKoi = 0;
@@ -392,19 +395,19 @@ public class CellSpacePartition : MonoBehaviour {
 		
 		
 		
-		MaxSpeed = 150.0f;
-		MaxSteeringForce = 2.0f; //should be 2.0f
-		VehicleMass = 1.0f;
+		MaxSpeed = 150.0f;//150
+		MaxSteeringForce = 4.0f; //should be 2.0f
+		VehicleMass = 2.0f;
 		VehicleScale = 3.0f;
 		m_vVelocity = new Vector3 (0.0f, 0.0f, 0.0f);//Vector3.zero;
 		m_Neighbors = new List<GameObject> ();
 		SeparationWeight = 1.0f;//multiplying values sep/coh/align by 10 seems to work well!
 		CohesionWeight = 2.0f;
-		ObstacleAvoidanceWeight = 10.0f;//what is a good weight for testing this?
+		ObstacleAvoidanceWeight = 0.7f;//what is a good weight for testing this? .o5
 		AlignmentWeight = 1.0f;
 		
 		DistToThisIP = 0.0f;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		ClosestPoint = new Vector3 (0.0f, 0.0f, 0.0f);//Vector3.zero;
 		Overshoot = new Vector3 (0.0f, 0.0f, 0.0f);//Vector3.zero;
 		hitNormal = new Vector3 (0.0f, 0.0f, 0.0f);
@@ -1461,11 +1464,11 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 		
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		FeelerForward(m_Vehicles[i].transform.position, tempVelocity, rayLength, layerMask, i);
 		
@@ -1655,12 +1658,12 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 		
 		
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		FeelerForward(m_Vehicles[i].transform.position, tempVelocity, rayLength, layerMask, i);
 		
@@ -1737,7 +1740,7 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 
@@ -1778,7 +1781,7 @@ public class CellSpacePartition : MonoBehaviour {
 				
 			}
 		}
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		FeelerForward(m_Vehicles[i].transform.position, tempVelocity, rayLength, layerMask, i);
 		
@@ -1866,12 +1869,12 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 
 
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		FeelerForward(m_Vehicles[i].transform.position, tempVelocity, rayLength, layerMask, i);
 		
@@ -2106,12 +2109,12 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 		
 		
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		
 		
@@ -2202,12 +2205,12 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 		
 		
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		FeelerForward(m_Vehicles[i].transform.position, tempVelocity, rayLength, layerMask, i);
 		
@@ -2286,11 +2289,11 @@ public class CellSpacePartition : MonoBehaviour {
 		RaycastHit hit;
 		//reset caseSwitch every Update.
 		caseSwitch = -1;
-		DistToClosestIP = 1000.0f;
+		DistToClosestIP = 2000.0f;
 		int layerMask = 1 << 8;
 		//layerMask = ~layerMask;
 
-		rayLength = 100.0f;
+		//rayLength = 100.0f;
 		
 		FeelerForward(m_Vehicles[i].transform.position, tempVelocity, rayLength, layerMask, i);
 		
@@ -2333,8 +2336,8 @@ public class CellSpacePartition : MonoBehaviour {
 		addNormalForce (caseSwitch, i);
 		
 		//spheres only make significant movements when raycast hits wall.  
-		CalculateNeighbors (m_Vehicles [i].transform.position, 10.0f); //this radius is not used to calculate neighbors for testing?
-		
+		CalculateNeighbors (m_Vehicles [i].transform.position, 50.0f); //this radius is not used to calculate neighbors for testing?
+		//TagVehiclesWithinViewRange (m_Vehicles [i], m_Vehicles, 200.0d);
 		//    Force = Vector3.zero;
 		
 		//Force = Wander () * WanderWeight;
@@ -2646,7 +2649,7 @@ public class CellSpacePartition : MonoBehaviour {
 			}
 			
 			//This draws line before forces are added to object.  
-			//Debug.DrawRay (m_Vehicles [i].transform.position, tempVelocity * rayLength, Color.green); 
+			Debug.DrawRay (m_Vehicles [i].transform.position, tempVelocity * rayLength, Color.green); 
 			
 		}
 	}
@@ -2659,7 +2662,7 @@ public class CellSpacePartition : MonoBehaviour {
 			////Debug.Log(hit.distance);
 			
 			//This draws line before forces are added to object.  
-			//Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f , Color.blue); 
+			Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f , Color.blue); 
 			
 			//WallCollision = true;
 			
@@ -2686,7 +2689,7 @@ public class CellSpacePartition : MonoBehaviour {
 			////Debug.Log(hit.distance);
 			
 			//This draws line before forces are added to object.  
-			//Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f, Color.gray); 
+			Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f, Color.gray); 
 			
 			//WallCollision = true;
 			
@@ -2713,7 +2716,7 @@ public class CellSpacePartition : MonoBehaviour {
 			////Debug.Log(hit.distance);
 			
 			//This draws line before forces are added to object.  
-			//Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f, Color.yellow); 
+			Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f, Color.yellow); 
 			
 			WallCollision = true;
 			FeelerD = Vel * rayLength / 2.0f;
@@ -2740,7 +2743,7 @@ public class CellSpacePartition : MonoBehaviour {
 			////Debug.Log(hit.distance);
 			
 			//This draws line before forces are added to object.  
-			//Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f, Color.red); 
+			Debug.DrawRay (m_Vehicles [i].transform.position, Vel * rayLength / 2.0f, Color.red); 
 			
 			FeelerU = Vel * rayLength / 2.0f;
 			DistToThisIP = hit.distance;
@@ -2758,38 +2761,40 @@ public class CellSpacePartition : MonoBehaviour {
 	}
 	
 	public void addNormalForce(int caseSwitch, int i) {
+
+
 		switch (caseSwitch) {
 		case 0: //is it correct to add m_Vehicles[i].transform.position?
 			Overshoot = m_Vehicles [i].transform.position + FeelerF - ClosestPoint;
 			Force = FeelerFNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
-			////Debug.Log (FeelerFNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);//values are normal.
+			//Debug.Log (FeelerFNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);//values are normal.
 			AccumulateForce (Force);
 			break;
 		case 1: 
 			Overshoot = m_Vehicles [i].transform.position + FeelerU - ClosestPoint;
 			Force = FeelerUNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
-			////Debug.Log (FeelerUNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
+			//Debug.Log (FeelerUNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
 			AccumulateForce (Force);
 			break;
 			
 		case 2: 
 			Overshoot = m_Vehicles [i].transform.position + FeelerD - ClosestPoint;
 			Force = FeelerDNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
-			////Debug.Log ( FeelerDNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
+			//Debug.Log ( FeelerDNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
 			AccumulateForce (Force);
 			break;
 			
 		case 3:
 			Overshoot = m_Vehicles [i].transform.position + FeelerL - ClosestPoint;
 			Force = FeelerLNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
-			////Debug.Log (FeelerLNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
+			//Debug.Log (FeelerLNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
 			AccumulateForce (Force);
 			break;
 			
 		case 4:
 			Overshoot = m_Vehicles [i].transform.position + FeelerR - ClosestPoint;
 			Force = FeelerRNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
-			////Debug.Log (FeelerRNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
+			//Debug.Log (FeelerRNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
 			AccumulateForce (Force);
 			break;
 			
@@ -2854,27 +2859,27 @@ public class CellSpacePartition : MonoBehaviour {
 		float z = m_Vehicles [i].transform.position.z;
 		
 		if (m_Vehicles [i].transform.position.x < 0f) {
-			x = 10f;
+			x = 1f;
 		}  
 		
 		if (m_Vehicles [i].transform.position.x > 1000f) {
-			x = 990f;
+			x = 999f;
 		} 
 		
 		if (m_Vehicles [i].transform.position.y < 0f) {
-			y = 10f;
+			y = 1f;
 		}
 		
 		if (m_Vehicles [i].transform.position.y > 1000f) {
-			y = 990f;
+			y = 999f;
 		}
 		
 		if (m_Vehicles [i].transform.position.z < 0f) {
-			z = 10f;
+			z = 1f;
 		}
 		
 		if (m_Vehicles [i].transform.position.z > 1000f) {
-			z = 990f;
+			z = 999f;
 		}
 		
 		Vector3 inBoundLocation = new Vector3(x,y,z);
@@ -2889,19 +2894,22 @@ public class CellSpacePartition : MonoBehaviour {
 		Force = Vector3.zero;
 		
 		Force = SeparationPlus (m_Vehicles [i]) * SeparationWeight;
-		//    //Debug.Log (Force);
+		//Force = Separation (m_Neighbors, m_Vehicles [i]) * SeparationWeight;
+		//Debug.Log (Force);
 		
 		AccumulateForce (Force);
 		
 		Force = Vector3.zero;
 		//you should be able to take alignment out and it should work...you don't understand heading....
-		Force = AlignmentPlus (m_Vehicles [i]) * AlignmentWeight; //what are the correct values for weights?
+		Force = AlignmentPlus (m_Vehicles [i]) * AlignmentWeight;
+		//Force = Alignment (m_Neighbors, m_Vehicles [i]) * AlignmentWeight; //what are the correct values for weights?  //try m_Vehicles
 		////Debug.Log (Force);
 		AccumulateForce (Force);
 		
 		Force = Vector3.zero;
 		
 		Force = CohesionPlus (m_Vehicles [i]) * CohesionWeight;
+		//Force = Cohesion (m_Neighbors, m_Vehicles [i]) * CohesionWeight;
 		////Debug.Log (Force);
 		AccumulateForce (Force);
 		
@@ -2970,5 +2978,79 @@ public class CellSpacePartition : MonoBehaviour {
 			}
 			//}
 		}
+	}
+
+	public void TagVehiclesWithinViewRange(GameObject m_pVehicle,List<GameObject> m_pVehicles, double m_dViewDistance) {
+		BallBounce temp = null;
+
+		for (int i = 0; i < m_pVehicles.Count; i++) {
+			temp = m_pVehicles[i].gameObject.GetComponent<BallBounce>();
+			temp.unTag();
+
+			Vector3 to = temp.transform.position - m_pVehicle.transform.position;
+
+			double range = m_dViewDistance + 100.0d;
+
+			bool areEqual = System.Object.ReferenceEquals (m_pVehicles [i],m_pVehicle);
+			if (!areEqual && to.magnitude*to.magnitude < m_dViewDistance * m_dViewDistance) {
+				temp.Tag ();
+			}
+		}
+	}
+
+	public Vector3 Separation(List<GameObject> neighbors, GameObject vehicle) {
+		Vector3 SteeringForce = Vector3.zero;
+
+		for (int a = 0; a < neighbors.Count; ++a) {
+			bool areEqual = System.Object.ReferenceEquals (vehicle,neighbors[a]);
+			if (!areEqual && neighbors[a].gameObject.GetComponent<BallBounce>().getTag ()) {
+				Vector3 ToAgent = vehicle.transform.position - neighbors[a].transform.position;
+				SteeringForce += ToAgent.normalized / ToAgent.magnitude;
+			}
+		}
+		return SteeringForce;
+	}
+
+	public Vector3 Alignment(List<GameObject> neighbors, GameObject vehicle) {
+		Vector3 AverageHeading = Vector3.zero;
+
+		int NeighborCount = 0;
+
+		for (int a = 0; a < neighbors.Count; ++a) {
+			bool areEqual = System.Object.ReferenceEquals (vehicle, neighbors [a]);
+			BallBounce temp = neighbors [a].gameObject.GetComponent<BallBounce> ();
+			if (!areEqual && temp.getTag ()) {
+				AverageHeading += temp.getHeading ();
+
+				++NeighborCount;
+			}
+		}
+		if (NeighborCount > 0) {
+			AverageHeading /= (float)NeighborCount;
+			AverageHeading -= vehicle.gameObject.GetComponent<BallBounce> ().getHeading ();
+		}
+		return AverageHeading;
+	}
+
+	public Vector3 Cohesion(List<GameObject> neighbors, GameObject vehicle) {
+		Vector3 CenterOfMass = Vector3.zero;
+		Vector3 SteeringForce = Vector3.zero;
+
+		int NeighborCount = 0;
+
+		for (int a = 0; a < neighbors.Count; ++a) {
+			bool areEqual = System.Object.ReferenceEquals (vehicle, neighbors [a]);
+			if (!areEqual && neighbors[a].gameObject.GetComponent<BallBounce>().getTag())
+			{
+				CenterOfMass += neighbors[a].transform.position;
+				++NeighborCount;
+			}
+		}
+
+		if (NeighborCount > 0) {
+			CenterOfMass /= (float)NeighborCount;
+			SteeringForce = Seek (CenterOfMass, vehicle);
+		}
+		return SteeringForce.normalized;
 	}
 }
