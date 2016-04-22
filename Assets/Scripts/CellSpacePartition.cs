@@ -33,27 +33,6 @@ public class CellSpacePartition : MonoBehaviour {
 	public int preyCount;
 	public Text BabyText;
 	public int babyCount;
-	//public GameObject plant;
-	public GameObject stone;
-	public GameObject stone1by2;
-	public GameObject stone2by3;
-	public GameObject stone2by4;
-	public GameObject stone5by5;
-	public GameObject stone5by6;
-	
-	public GameObject seaweed;
-	public GameObject seaweed5by5;
-	public GameObject seaweed5by8;
-	public GameObject coral1;
-	public GameObject coral2;
-	public GameObject coral4;
-	public GameObject seaShell1;
-	public GameObject seaShell6;
-	public GameObject seaShell11;
-	public GameObject sponge1;
-	public GameObject sponge2by2;
-	public GameObject sponge3by3;
-	
 	
 	public GameObject fish;
 	public GameObject fishDolphin;
@@ -77,10 +56,10 @@ public class CellSpacePartition : MonoBehaviour {
 	
 	private int NumCellsX = 10; //7
 	private int NumCellsY = 10;
-	private int NumCellsZ = 10;
+	private int NumCellsZ = 10;   // CHANGING from 10
 	private int NumAgents = 50;//why do all spheres go to x-z positive corner?
 	private double cx = 1000;
-	private double cy = 1000, cz = 1000;
+	private double cy = 1000, cz = 1000; // CHANGING from 1000
 	
 	private int m_iNumCellsX;
 	private int m_iNumCellsY;
@@ -221,10 +200,10 @@ public class CellSpacePartition : MonoBehaviour {
 		}
 		
 		
-		for (int i = 0; i < 50; i++) { //numAgents 50
+		for (int i = 0; i < 10; i++) { //numAgents 50
 			
 			GameObject clone;
-			Vector3 temp = new Vector3(Random.Range (10.0f, 900.0f), Random.Range (10.0f, 900.0f),Random.Range (10.0f, 900.0f));//for some reason all spheres move to one corner all time. 
+			Vector3 temp = new Vector3(Random.Range (10.0f, 10.0f), Random.Range (10.0f, 10.0f),Random.Range (10.0f, 10.0f));//for some reason all spheres move to one corner all time. 
 			clone = Instantiate(fish, temp, Quaternion.identity) as GameObject;    
 			clone.GetComponent<BallBounce>().setKoi ();
 			//clone.GetComponent<BallBounce>().setFishNumber(i);
@@ -238,10 +217,10 @@ public class CellSpacePartition : MonoBehaviour {
 			
 		}
 
-		for (int i = 0; i < 50; i++) { //50
+		for (int i = 0; i < 10; i++) { //50
 			
 			GameObject clone;
-			Vector3 temp = new Vector3(Random.Range (10.0f, 900.0f), Random.Range (10.0f, 900.0f),Random.Range (10.0f, 900.0f));//for some reason all spheres move to one corner all time. 
+			Vector3 temp = new Vector3(Random.Range (10.0f,900.0f), Random.Range (10.0f, 900.0f),Random.Range (10.0f,15.0f));//for some reason all spheres move to one corner all time. 
 			clone = Instantiate(goldFish, temp, Quaternion.identity) as GameObject;    
 			clone.GetComponent<BallBounce>().setGoldfish ();
 			////Debug.Log (clone.GetComponent<BallBounce>().getKoi());//this returns true!!!
@@ -255,10 +234,10 @@ public class CellSpacePartition : MonoBehaviour {
 		}
 
 		
-		for (int i = 1; i < 30; i++) {//30
+		for (int i = 1; i < 10; i++) {//30
 			
 			GameObject clone;
-			Vector3 temp = new Vector3(Random.Range (30.0f, 900.0f), Random.Range (30.0f, 900.0f),Random.Range (30.0f, 900.0f));//for some reason all spheres move to one corner all time. 
+			Vector3 temp = new Vector3(Random.Range (10.0f, 900.0f), Random.Range (10.0f, 900.0f),Random.Range (10.0f, 15.0f));//for some reason all spheres move to one corner all time. 
 			clone = Instantiate(fishDolphin, temp, Quaternion.identity) as GameObject;    
 			clone.GetComponent<BallBounce>().setAmberjack ();
 			//clone.GetComponent<BallBounce>().setFishNumber(i);
@@ -273,105 +252,6 @@ public class CellSpacePartition : MonoBehaviour {
 			
 		}
 		
-		GameObject plantClone; 
-		
-		for (int j = 0; j < 10; j++) {
-			Vector3 plantLoc = new Vector3 (Random.Range (10.0f, 980.0f), 20.0f, Random.Range (10.0f, 980.0f));
-			plantClone = Instantiate (seaweed, plantLoc, Quaternion.identity) as GameObject;
-			
-			m_PlantList.Add (plantClone);
-		}
-		
-		for (int j = 0; j < 10; j++) {
-			Vector3 plantLoc = new Vector3 (Random.Range (10.0f, 980.0f), 20.0f, Random.Range (10.0f, 980.0f));
-			plantClone = Instantiate (seaweed5by5, plantLoc, Quaternion.identity) as GameObject;
-			//m_PlantList.Add (plantClone);
-		}
-		
-		
-		for (int j = 0; j < 10; j++) {
-			Vector3 plantLoc = new Vector3 (Random.Range (10.0f, 980.0f), 20.0f, Random.Range (10.0f, 980.0f));
-			plantClone = Instantiate (seaweed5by8, plantLoc, Quaternion.identity) as GameObject;
-			//m_PlantList.Add (plantClone);
-		}
-		
-		
-		//    Instantiate (plant, plantLoc, Quaternion.identity);
-		for (int i = 0; i < 10; i++) {
-			Vector3 stoneLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (stone, stoneLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (coral1, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (coral2, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (coral4, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (seaShell1, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (seaShell6, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (seaShell11, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (sponge1, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (sponge2by2, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (sponge3by3, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (stone1by2, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (stone2by3, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (20.0f, 900.0f), 10.0f, Random.Range (20.0f,900.0f));
-			Instantiate (stone2by4, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (stone5by5, coralLoc, Quaternion.identity);
-		}
-		
-		for (int i = 0; i < 10; i++) {
-			Vector3 coralLoc = new Vector3 (Random.Range (10.0f, 900.0f), 10.0f, Random.Range (0.0f,1000.0f));
-			Instantiate (stone5by6, coralLoc, Quaternion.identity);
-		}
-
 		hotLightPosition = Instantiate (hotLight, new Vector3 (500.0f, 900.0f, 500.0f), Quaternion.identity) as GameObject;
 		//Instantiate (coldLight, new Vector3 (100.0f, 900.0f, 100.0f), Quaternion.identity);
 
@@ -404,7 +284,7 @@ public class CellSpacePartition : MonoBehaviour {
 		SeparationWeight = 1.0f;//multiplying values sep/coh/align by 10 seems to work well!
 		CohesionWeight = 2.0f;
 		ObstacleAvoidanceWeight = 0.7f;//what is a good weight for testing this? .o5
-		AlignmentWeight = 1.0f;
+		AlignmentWeight = 0.0f;  // CHANGED THIS from 1.0
 		
 		DistToThisIP = 0.0f;
 		DistToClosestIP = 2000.0f;
@@ -2193,7 +2073,6 @@ public class CellSpacePartition : MonoBehaviour {
 	
 	public void Wander(int i){
 		
-
 		//for (int i = 0; i < m_Vehicles.Count; i++) {
 		//BallBounce tempScript = m_Vehicles [i].GetComponent<BallBounce> ();
 		tempVelocity = tempScript.getVelocity ();
@@ -2277,7 +2156,7 @@ public class CellSpacePartition : MonoBehaviour {
 	
 	public void Flock(int i)
 	{
-		
+
 		//for (int i = 0; i < m_Vehicles.Count; i++) {
 		//BallBounce tempScript = m_Vehicles [i].GetComponent<BallBounce> ();
 		tempVelocity = tempScript.getVelocity ();
@@ -2484,7 +2363,7 @@ public class CellSpacePartition : MonoBehaviour {
 		if (NeighborCount > 0.0f) {
 			AverageHeading /= NeighborCount;
 			AverageHeading -= tempHeadingOne; //THIS SHOULD ALSO BE HEADING, NOT m_vVelocity.
-		}
+        }
 		return AverageHeading;
 	}
 	
@@ -2630,7 +2509,8 @@ public class CellSpacePartition : MonoBehaviour {
 	
 	
 	public void FeelerForward(Vector3 pos, Vector3 Vel, float rayLength, int LayerMask, int i) {
-		RaycastHit hit;
+		
+        RaycastHit hit;
 		
 		if (Physics.Raycast (m_Vehicles [i].transform.position, tempVelocity, out hit, rayLength, LayerMask)) {
 			
@@ -2652,6 +2532,7 @@ public class CellSpacePartition : MonoBehaviour {
 			Debug.DrawRay (m_Vehicles [i].transform.position, tempVelocity * rayLength, Color.green); 
 			
 		}
+
 	}
 	
 	public void FeelerRight(Vector3 pos, Vector3 Vel, float rayLength, int LayerMask, int i) {
@@ -2761,14 +2642,13 @@ public class CellSpacePartition : MonoBehaviour {
 	}
 	
 	public void addNormalForce(int caseSwitch, int i) {
-
-
+       
 		switch (caseSwitch) {
 		case 0: //is it correct to add m_Vehicles[i].transform.position?
 			Overshoot = m_Vehicles [i].transform.position + FeelerF - ClosestPoint;
 			Force = FeelerFNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
 			//Debug.Log (FeelerFNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);//values are normal.
-			AccumulateForce (Force);
+			AccumulateForce (Force);         
 			break;
 		case 1: 
 			Overshoot = m_Vehicles [i].transform.position + FeelerU - ClosestPoint;
@@ -2799,9 +2679,21 @@ public class CellSpacePartition : MonoBehaviour {
 			break;
 			
 		default: 
-			////Debug.Log("No wall collision");
-			break;
+            
+			////Debug.Log("No wall collision");  /// CHANGING THIS ..
+            /*Overshoot = m_Vehicles [i].transform.position + FeelerF - ClosestPoint;
+            Force = FeelerFNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
+            //Debug.Log (FeelerFNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);//values are normal.
+            AccumulateForce (Force);
+			break;*/
+
+            Overshoot = m_Vehicles [i].transform.position + FeelerR - ClosestPoint;
+            Force = FeelerRNormal * Overshoot.magnitude * ObstacleAvoidanceWeight;
+            //Debug.Log (FeelerRNormal* Overshoot.magnitude * ObstacleAvoidanceWeight);
+            AccumulateForce (Force);
+            break;
 		}
+        
 	}
 	
 	public void translatePosition(int i) {
@@ -2878,8 +2770,8 @@ public class CellSpacePartition : MonoBehaviour {
 			z = 1f;
 		}
 		
-		if (m_Vehicles [i].transform.position.z > 1000f) {
-			z = 999f;
+		if (m_Vehicles [i].transform.position.z > 10f) {
+			z = 9f;
 		}
 		
 		Vector3 inBoundLocation = new Vector3(x,y,z);
@@ -3053,4 +2945,5 @@ public class CellSpacePartition : MonoBehaviour {
 		}
 		return SteeringForce.normalized;
 	}
+
 }
